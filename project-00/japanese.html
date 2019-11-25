@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <style type="text/css">
+        body {
+            background-color: #feeeed;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        img {
+            height: 350px;
+        }
+
+        #remove {
+            margin: 10px;
+        }
+
+        .card-img-top {
+            height: 150px;
+        }
+
+        #heading {
+            color: #ff9bb2;
+            font-size: 4rem;
+            font-weight: bolder;
+            text-align: center;
+        }
+
+        #collapseExample {
+            margin: 0px auto;
+            width: 50%;
+        }
+
+        #canvas {
+            margin: auto;
+            display: block;
+        }
+
+        .card-title {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #card-body1 {
+            background-color: #F08080;
+        }
+
+        #card-body2 {
+            background-color: #EEE8AA;
+        }
+
+        #card-body3 {
+            background-color: #98FB98;
+        }
+
+        #card-body4 {
+            background-color: #AFEEEE;
+        }
+
+        #card-body5 {
+            background-color: #D8BFD8;
+        }
+
+        #card-body6 {
+            background-color: #E6E6FA;
+        }
+
+        .fab {
+            width: 70px;
+            height: 70px;
+            background-color: mediumturquoise;
+            border-radius: 50%;
+            box-shadow: 0 6px 10px 0 #666;
+            transition: all 0.1s ease-in-out;
+
+            font-size: 50px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            line-height: 70px;
+
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+        }
+
+        .fab:hover {
+            box-shadow: 0 6px 14px 0 #666;
+            transform: scale(1.05);
+        }
+    </style>
+    <title>No Japan 일식</title>
+</head>
+
+<body>
+    <!-- floating action button -->
+    <a href="http://172.16.6.7:8081/index.html"><div class="fab">H</div></a>
+
+    <br>
+    <!-- banner -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-interval="3000">
+                <img src="img/index/carousel1.jpg" class="d-block w-100" alt="배달의민족">
+            </div>
+            <div class="carousel-item" data-interval="3000">
+                <img src="img/index/carousel2.jpg" class="d-block w-100" alt="배달대상">
+            </div>
+            <div class="carousel-item" data-interval="3000">
+                <img src="img/index/carousel3.png" class="d-block w-100" alt="어떤민족">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <br id="shrink"><br>
+    <!-- text rotator -->
+    <h1 id="heading">오늘은 <span class="rotate">초밥이, 돈까스가, 소바가, 라멘이, 이자카야가, 덮밥이</span> 땡기는 기분!!!</h1>
+    <br><br>
+
+    <!-- menu select cards -->
+    <div class="card-deck">
+        <div class="card" id="food1">
+            <img src="img/japanese/sushi.jpg" class="card-img-top" alt="...">
+            <div class="card-body" id="card-body1">
+                <h5 class="card-title">초밥</h5>
+            </div>
+        </div>
+        <div class="card" id="food2">
+            <img src="img/japanese/tonkatsu.jpg" class="card-img-top" alt="...">
+            <div class="card-body" id="card-body2">
+                <h5 class="card-title">돈까스</h5>
+            </div>
+        </div>
+        <div class="card" id="food3">
+            <img src="img/japanese/soba.jpg" class="card-img-top" alt="...">
+            <div class="card-body" id="card-body3">
+                <h5 class="card-title">소바</h5>
+            </div>
+        </div>
+        <div class="card" id="food4">
+            <img src="img/japanese/ramen.jpg" class="card-img-top" alt="...">
+            <div class="card-body" id="card-body4">
+                <h5 class="card-title">라멘</h5>
+            </div>
+        </div>
+        <div class="card" id="food5">
+            <img src="img/japanese/izakaya.jpg" class="card-img-top" alt="...">
+            <div class="card-body" id="card-body5">
+                <h5 class="card-title">이자카야</h5>
+            </div>
+        </div>
+        <div class="card" id="food6">
+            <img src="img/japanese/donburi.jpg" class="card-img-top" alt="...">
+            <div class="card-body" id="card-body6">
+                <h5 class="card-title">덮밥</h5>
+            </div>
+        </div>
+    </div>
+
+    <!-- select button -->
+    <div align="center">
+        <button id="remove" type="button" class="btn btn-danger btn-lg" data-toggle="collapse" href="#collapseExample"
+            role="button" aria-expanded="false" aria-controls="collapseExample">너로 정했다!</button>
+    </div>
+    <hr>
+    <!-- open roulette canvas -->
+    <div class="collapse" id="collapseExample">
+        <div align="center" id="wheel">
+            <button id='spin' class="btn btn-primary btn-lg">돌리기</button>
+            <br>
+            <canvas id="canvas" width="700" height="700"></canvas>
+            <a href="http://172.16.6.7:8088/Japanese.html"><button id="home"
+                    class="btn btn-secondary btn-lg">처음으로</button></a>
+            <br><br><br><br><br>
+            <p>Copyright © 2019</p>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- bootstrap card css style(javascript) -->
+    <script type="text/javascript">
+        $(function () {
+            $('.card').css({ "flex": "none", "width": "150px", "height": "200px", "margin": "10px" });
+            $('.card-img-top').css({ "height": "150px" });
+            $('.card-body').css({ "height": "40px", "padding": "10px" })
+            $('.card-deck').css({ "justify-content": "space-between", "margin": "10px", "border": "solid 4px", "border-color": "#fffff9", "border-radius": "40px", "padding": "20px" });
+        });
+    </script>
+
+    <!-- main script -->
+    <script type="text/javascript">
+        var foodList = [];
+        // on|off switch
+        $(".card").on("click", function (event) {
+            var selected = $(this).attr("data-selected");
+            if (selected == "on") {
+                foodList.filter(e => e !== $(this).find('.card-title').text());
+                $(this).css({ "border": "none" });
+            } else {
+                foodList.push($(this).find('.card-title').text());
+                $(this).css({ "border": "5px solid red" });
+            }
+            $(this).attr("data-selected", selected == "on" ? "off" : "on");
+            options = foodList;
+        });
+
+        // hiding unnecessary object
+        $("#remove").on("click", function (event) {
+            $("#remove").hide();
+            $(".card-deck").hide();
+            $("#shrink").hide();
+            $("#carouselExampleIndicators").hide();
+            arc = Math.PI / (options.length / 2);
+            drawRouletteWheel();
+        });
+
+        var colors = ["#F08080", "#EEE8AA", "#98FB98", "#AFEEEE", "#D8BFD8", "#E6E6FA"];
+        var options = ["초밥", "돈까스", "소바", "라멘", "이자카야", "덮밥"];
+        var startAngle = 0;
+        var arc = Math.PI / (options.length / 2);
+        var spinTimeout = null;
+
+        var spinArcStart = 10;
+        var spinTime = 0;
+        var spinTimeTotal = 0;
+
+        var ctx;
+
+        $("#spin").on("click", spin);
+
+        // draw roullette function
+        function drawRouletteWheel() {
+            var canvas = document.getElementById("canvas");
+
+            if (canvas.getContext) {
+                var outsideRadius = 300;
+                var textRadius = 220;
+                var insideRadius = 100;
+
+                ctx = canvas.getContext("2d");
+                ctx.clearRect(0, 0, 500, 500);
+
+                ctx.strokeStyle = "black";
+                ctx.lineWidth = 2;
+
+                ctx.font = 'bold 40px Helvetica, Arial';
+
+                for (var i = 0; i < options.length; i++) {
+                    var angle = startAngle + i * arc;
+                    ctx.fillStyle = colors[i]
+
+                    ctx.beginPath();
+                    ctx.arc(300, 350, outsideRadius, angle, angle + arc, false);
+                    ctx.arc(300, 350, insideRadius, angle + arc, angle, true);
+                    ctx.stroke();
+                    ctx.fill();
+
+                    ctx.save();
+                    ctx.shadowOffsetX = -1;
+                    ctx.shadowOffsetY = -1;
+                    ctx.shadowBlur = 0;
+                    ctx.shadowColor = "rgb(220,220,220)";
+                    ctx.fillStyle = "black";
+                    ctx.translate(300 + Math.cos(angle + arc / 2) * textRadius,
+                        350 + Math.sin(angle + arc / 2) * textRadius);
+                    ctx.rotate(angle + arc / 2 + Math.PI / 2);
+                    var text = options[i];
+                    ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
+                    ctx.restore();
+                }
+
+                //Arrow
+                ctx.fillStyle = "black";
+                ctx.beginPath();
+                ctx.moveTo(300 - 10, 345 - (outsideRadius + 10));
+                ctx.lineTo(300 + 10, 345 - (outsideRadius + 10));
+                ctx.lineTo(300 + 10, 345 - (outsideRadius - 10));
+                ctx.lineTo(300 + 20, 345 - (outsideRadius - 10));
+                ctx.lineTo(300 + 0, 345 - (outsideRadius - 25));
+                ctx.lineTo(300 - 20, 345 - (outsideRadius - 10));
+                ctx.lineTo(300 - 10, 345 - (outsideRadius - 10));
+                ctx.lineTo(300 - 10, 345 - (outsideRadius + 10));
+                ctx.fill();
+            }
+        }
+
+        // roulette spining function
+        function spin() {
+            spinAngleStart = Math.random() * 10 + 30;
+            spinTime = 0;
+            spinTimeTotal = Math.random() * 3 + 10 * 1000;
+            rotateWheel();
+        }
+
+        // spinning rotation function
+        function rotateWheel() {
+            spinTime += 30;
+            if (spinTime >= spinTimeTotal) {
+                stopRotateWheel();
+                return;
+            }
+            var spinAngle = spinAngleStart - easeOut(spinTime, 0, spinAngleStart, spinTimeTotal);
+            startAngle += (spinAngle * Math.PI / 180);
+            drawRouletteWheel();
+            spinTimeout = setTimeout('rotateWheel()', 30);
+        }
+
+        // roulette timer
+        function stopRotateWheel() {
+            clearTimeout(spinTimeout);
+            var degrees = startAngle * 180 / Math.PI + 90;
+            var arcd = arc * 180 / Math.PI;
+            var index = Math.floor((360 - degrees % 360) / arcd);
+            ctx.save();
+            ctx.font = 'bold 40px Helvetica, Arial';
+            var text = options[index]
+            ctx.fillText(`${text}`, 300 - ctx.measureText(text).width / 2, 350 + 10);
+            ctx.restore();
+            $("#canvas").attr({ "data-toggle": "modal", "data-target": "#exampleModal" });
+            $("#canvas").css({ "cursor": "pointer" });
+            $(".modal-header").text(text).css({"font-weight": "bold", "font-size": "16pt"})
+            // modal contents switching
+            switch (text) {
+                case "초밥":
+                    $(".modal-body").html(`<img src = "img/japanese/sushi1.jpg" width="450" alt="스시비쇼쿠">
+                                           <hr><h5>스시비쇼쿠</h5>
+                                           <p>tel: 02-865-1488</p>
+                                           <a href="http://bitly.kr/dUTPlfg"><p>지도</p><a>`
+                    );
+                    break;
+                case "돈까스":
+                    $(".modal-body").html(`<img src = "img/japanese/tonkatsu1.jpg" width="450" alt="온정돈까스">
+                                           <hr><h5>온정돈까스</h5>
+                                           <p>tel: 02-3281-3330</p>
+                                           <a href="http://bitly.kr/PxsnElg"><p>지도</p><a>`
+                    );
+                    break;
+                case "소바":
+                    $(".modal-body").html(`<img src = "img/japanese/soba1.jpg" width="450" alt="스바루">
+                                           <hr><h5>스바루</h5>
+                                           <p>tel: 02-336-4860</p>
+                                           <a href="http://bitly.kr/DMmVm6U"><p>지도</p><a>`
+                    );
+                    break;
+                case "라멘":
+                    $(".modal-body").html(`<img src = "img/japanese/ramen1.jpg" width="450" alt="멘무샤">
+                                           <hr><h5>멘무샤 구로디지털단지점</h5>
+                                           <p>tel: 02-2082-3238</p>
+                                           <a href="http://bitly.kr/6yvp6kT"><p>지도</p><a>`
+                    );
+                    break;
+                case "이자카야":
+                    $(".modal-body").html(`<img src = "img/japanese/ramen1.jpg" width="450" alt="프로젝트 마도">
+                                           <hr><h5>프로젝트 마도</h5>
+                                           <p>tel: 02-858-7187</p>
+                                           <a href="http://bitly.kr/NkVjyV5"><p>지도</p><a>`
+                    );
+                    break;
+                case "덮밥":
+                    $(".modal-body").html(`<img src = "img/japanese/ramen1.jpg" width="450" alt="텐동 요츠야">
+                                           <hr><h5>텐동 요츠야</h5>
+                                           <p>tel: 02-883-7974</p>
+                                           <a href="http://bitly.kr/R4kye7g"><p>지도</p><a>`
+                    );
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        function easeOut(t, b, c, d) {
+            var ts = (t /= d) * t;
+            var tc = ts * t;
+            return b + c * (tc + -3 * ts + 3 * t);
+        }
+
+        drawRouletteWheel();
+    </script>
+
+    <!-- text rotator function script -->
+    <script type="text/javascript">
+        !function ($) {
+
+            var defaults = {
+                animation: "dissolve",
+                separator: ",",
+                speed: 2000
+            };
+
+            $.fx.step.textShadowBlur = function (fx) {
+                $(fx.elem).prop('textShadowBlur', fx.now).css({ textShadow: '0 0 ' + Math.floor(fx.now) + 'px black' });
+            };
+
+            $.fn.textrotator = function (options) {
+                var settings = $.extend({}, defaults, options);
+
+                return this.each(function () {
+                    var el = $(this)
+                    var array = [];
+                    $.each(el.text().split(settings.separator), function (key, value) {
+                        array.push(value);
+                    });
+                    el.text(array[0]);
+
+                    // animation option
+                    var rotate = function () {
+                        switch (settings.animation) {
+                            case 'dissolve':
+                                el.animate({
+                                    textShadowBlur: 20,
+                                    opacity: 0
+                                }, 500, function () {
+                                    index = $.inArray(el.text(), array)
+                                    if ((index + 1) == array.length) index = -1
+                                    el.text(array[index + 1]).animate({
+                                        textShadowBlur: 0,
+                                        opacity: 1
+                                    }, 500);
+                                });
+                        }
+                    };
+                    setInterval(rotate, settings.speed);
+                });
+            }
+
+        }(window.jQuery);
+    </script>
+
+    <script type="text/javascript">
+
+        // apply text rotator to text
+        $(".rotate").textrotator({
+            animation: "dissolve", // You can pick the way it animates when rotating through words. Options are dissolve (default), fade, flip, flipUp, flipCube, flipCubeUp and spin.
+            separator: ",", // If you don't want commas to be the separator, you can define a new separator (|, &, * etc.) by yourself using this field.
+            speed: 2000 // How many milliseconds until the next word show.
+        });
+
+    </script>
+
+</html>

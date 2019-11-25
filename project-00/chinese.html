@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+<meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+    html,body{ 
+      margin:0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: red;}
+    
+    h1{text-align: center;
+       color: yellow;}
+        #ma{
+          width: 1200px;
+          height: 600px;
+          border:  solid 2px;
+          position : relative;
+          margin: 0 auto;
+        }
+       #ma >img{
+          position: absolute;
+          left:0;
+          width:1200px;
+                 height:600px;
+                 margin:0 auto;
+        }   
+            
+          #stop{
+                 width: 200px;
+                 height: 50px;
+                 margin: 0 auto;
+                }
+           #start{
+           width: 200px;
+                 height: 50px;
+                 margin: 0 auto;
+           }     
+          .as{
+          width: 1200px;
+          height:1000px;
+          margin:  20px auto;
+         
+          }
+          h2{
+          color: red;
+          font-style: italic;
+          font-weight: 1000;
+          text-align: center;
+          background: rgb(0, 255, 191);
+           height: 50px;
+           line-height: 50px;
+           cursor: pointer;
+          }
+		ul{
+			list-style : none;
+		}
+		.as li >h1{ cursor:pointer;}
+    li > ul{ display:none;}
+    li > ul >li{ color:#00F;}
+    table{
+     
+    	width: 1200px;
+    	height: 600px;
+    	margin: 0 auto;
+    }
+    #d{
+      height: 200px;
+    }
+    .fab {
+      width: 70px;
+      height: 70px;
+      background-color: mediumturquoise;
+      border-radius: 50%;
+      box-shadow: 0 6px 10px 0 #666;
+      transition: all 0.1s ease-in-out;
+
+      font-size: 50px;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+      line-height: 70px;
+
+      position: fixed;
+      right: 50px;
+      bottom: 50px;
+    }
+
+    .fab:hover {
+      box-shadow: 0 6px 14px 0 #666;
+      transform: scale(1.05);
+    }
+    
+    
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+     $(function(){
+    var pp=0;
+         
+         $("#start").on("click",function(){
+            pp = setInterval(function(){
+             $("#ma").append($("#ma > img").first());
+           },100);
+           $("#stop").on("click",function(){
+           clearInterval(pp);
+         })
+     })
+     $(".as h2").click(function(){
+    	    $(".as ul ul").slideUp();
+    	   // $('.ico_ar').css('transform','none');
+    	  
+    	    if(!$(this).next().is(":visible"))
+    	    {
+    	    	$(this).next().slideDown();
+    	    	
+    	     // $(this).find('.ico_ar:eq(0)').css('transform','rotate(180deg)');
+    	    }
+    	  });
+                 
+           
+      
+
+     });
+   
+
+ </script>
+     
+</head>
+<body>
+<a href="http://172.16.6.7:8081/index.html">
+    <div class="fab">H</div>
+  </a>
+
+  <table id = "d">
+    <tr>
+<td><img class="leftImg" src="img/chinese/4.png"></td>
+<td><img class="rightImg" src="img/chinese/3.png"></td>
+    </tr>  
+</table>
+  <h1 style="font-size: 100px;">중화 요리</h1> 
+  <table>
+  <tr>
+  <td><img src="img/chinese/1.png"></td>
+  
+  
+ <td>
+ <div id="ma"> 
+ 	<img  src="img/chinese/y.jpg">
+  <img src="img/chinese/jj.jpg" >
+  <img src="img/chinese/jjj.jpg" >
+  <img src="img/chinese/b.jpg" >
+  <img src="img/chinese/t.jpg" >
+  <img src="img/chinese/j.jpg" > 
+  </div>
+  </td>
+  
+  <td><img src="img/chinese/2.png"></td>
+  
+ </tr>
+  
+  </table>
+  <div style="text-align: center;">
+  <button id="start">start</button>
+  <button id="stop">stop</button>
+  </div>
+ 
+  <div class="as" >
+  <ul>
+  <li>
+  <h2>자장면 만들기</h2><ul><li><iframe width="560" height="315" src="https://www.youtube.com/embed/KIf5lJgjDZ4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li></ul>
+  </li>
+  <li>
+  <h2 >자장면 먹방</h2><ul><li><iframe width="560" height="315" src="https://www.youtube.com/embed/iz9lgT-3X_I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></iframe></li></ul>
+  </li>
+  </ul> 
+  
+  <ul>
+  	<li>
+  		<h2>짬뽕 만들기</h2>
+  		<ul>
+  			<li><iframe width="560" height="315" src="https://www.youtube.com/embed/9_aSABgUwmk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
+  		</ul>
+   </li>
+   <li>
+   <h2 >짬뽕 먹방</h2><ul><li><iframe width="560" height="315" src="https://www.youtube.com/embed/pqxTvIjD20U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li></ul>
+   </li>
+  </ul>
+ 
+  
+  
+  <ul>
+  	<li>
+  		<h2>볶음밥 만들기</h2>
+  		<ul>
+  			<li><iframe width="560" height="315" src="https://www.youtube.com/embed/kR77WlHRZrs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
+  		</ul>
+   </li>
+   <li>
+   <h2 >볶음밥 먹방</h2><ul><li><iframe width="560" height="315" src="https://www.youtube.com/embed/TqoUT47pv1o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li></ul>
+   </li>
+  </ul>
+  
+  
+  <ul>
+  	<li>
+  		<h2>탕수육 만들기</h2>
+  		<ul>
+  			<li><iframe width="560" height="315" src="https://www.youtube.com/embed/0fYZlrFXfuk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
+  		</ul>
+   </li>
+   <li>
+   <h2 >탕수육 먹방</h2><ul><li><iframe width="560" height="315" src="https://www.youtube.com/embed/r7wtpFjciME" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li></ul>
+   </li>
+  </ul>
+ 
+  
+  <ul>
+  	<li>
+  		<h2>양장피 만들기</h2>
+  		<ul>
+  			<li><iframe width="560" height="315" src="https://www.youtube.com/embed/I3tlnvdbSC4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
+  		</ul>
+   </li>
+   <li>
+   <h2 >양장피 먹방</h2><ul><li><iframe width="560" height="315" src="https://www.youtube.com/embed/IVZDXdfU4B0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li></ul>
+   </li>
+  </ul>
+ 
+  </div>
+   
+  
+  
+    
+  
+   
+  <script type="text/javascript"></script>
+</body>
+</html>

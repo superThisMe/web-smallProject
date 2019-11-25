@@ -1,0 +1,313 @@
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+        <title></title> 
+        <style type="text/css">
+        .fab {
+      width: 70px;
+      height: 70px;
+      background-color: mediumturquoise;
+      border-radius: 50%;
+      box-shadow: 0 6px 10px 0 #666;
+      transition: all 0.1s ease-in-out;
+
+      font-size: 50px;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+      line-height: 70px;
+
+      position: fixed;
+      right: 50px;
+      bottom: 50px;
+    }
+
+    .fab:hover {
+      box-shadow: 0 6px 14px 0 #666;
+      transform: scale(1.05);
+    }
+
+        #main-text {width: 100%; height: 100%; color:blanchedalmond}
+        h1 {position : absolute; top : 10%; left : 20%;  color:white; 
+            font-size: 70pt; line-height:0%; letter-spacing: 0px; word-spacing: 0px;}
+        #img-click {position : absolute; top : 10%; left : 60%;  color:white;font-size: 20pt; color:black}    
+
+        .scroll {position : absolute; bottom : 5%; left : 50%; color:white;}
+        #main-img { position : absolute; top:0; left: 0; width: 100%; height: 100%; opacity: 0.9;}
+         table {float : right ; margin-right: 2%;}
+         #div1 > img {position : absolute; width: 100px; height: 100px;}
+         #page2-imgs { position : absolute; left : 29%; top : 50%; opacity: 0.5;}
+         #page2-imgs > img { width: 200px; height: 200px; }
+        .canvas {text-align: center; width: 250px; height: 250px; }
+       
+        #infor-box { width: 1300px; height: 400px; position: absolute; bottom: 100px; margin-left: 2%;}
+        .box:nth-child(3) {position:relative;}
+        .infor-img {width: 200px; height: 200px;}
+        #selected-img {position : absolute; left : 70%; top : 15%; width: 300px; height : 300px; border : solid black}
+        #auto-btn {width: 50px; height: 50px;} 
+        #stop {width: 50px; height: 50px;} 
+       
+        #buttons {position : absolute; left : 50%; top : 80%;}
+
+              
+         html,body{ margin:0; padding:0; width:100%; height:100%;}
+        .box{ width:100%; height:100%; position:relative; color:#ffffff; font-size:24pt;}
+        #ending {position : absolute; top : 10%; left : 20%;  color:black; 
+            font-size: 70pt; line-height:0%; letter-spacing: 0px; word-spacing: 0px;}
+        #ending-img {position :absolute; top : 30%; left : 60%; width: 30%; height: 50%;}
+        </style>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script type="text/javascript">
+         $(function(){
+                var elm = ".box";
+            $(elm).each(function (index) {
+                // 개별적으로 Wheel 이벤트 적용
+                $(this).on("mousewheel DOMMouseScroll", function (e) {
+                    e.preventDefault();
+                    var delta = 0;
+                    if (!event) event = window.event;
+                    if (event.wheelDelta) {
+                        delta = event.wheelDelta / 120;
+                        if (window.opera) delta = -delta;
+                    } 
+                    else if (event.detail)
+                        delta = -event.detail / 3;
+                    var moveTop = $(window).scrollTop();
+                    var elmSelecter = $(elm).eq(index);
+                    // 마우스휠을 위에서 아래로
+                    if (delta < 0) {
+                        if ($(elmSelecter).next() != undefined) {
+                            try{
+                                moveTop = $(elmSelecter).next().offset().top;
+                            }catch(e){}
+                        }
+                    // 마우스휠을 아래에서 위로
+                    } else {
+                        if ($(elmSelecter).prev() != undefined) {
+                            try{
+                                moveTop = $(elmSelecter).prev().offset().top;
+                            }catch(e){}
+                        }
+                    }
+                     
+                    // 화면 이동 0.8초(800)
+                    $("html,body").stop().animate({
+                        scrollTop: moveTop + 'px'
+                    }, {
+                        duration: 300, complete: function () {
+                        }
+                    });
+                });
+            });
+
+        });
+        </script>
+        
+</head>
+<body>          
+<!------------------------------------------page 1 main-img--------------------------------------------------------->
+        <div class="box"><img id="main-img" src="img/western/pizzapasta.jpg">
+          
+                    <h1><p>양식이 땡길때</p>
+                        <p>결정 장애가</p>
+                        <p>있다면....</p></h1>
+                
+                <script type="text/javascript"></script>
+
+               <img class = "scroll" src = "img/western/scroll.png">
+                
+         
+        </div>
+        
+<!------------------------------------------page 1 main-img--------------------------------------------------------->       
+<!------------------------------------------page 2 random-img------------------------------------------------------->        
+        <div class="box" style="background-color:orange;">
+                    <h1><p>오늘의 메뉴를</p>
+                        <p>추천 드리지요</p>
+                     
+                    </h1>
+            
+
+            <script type="text/javascript">
+                $(function(){
+     // 이미지 슬라이드 자동
+                    var pp=0;
+                    var currentImg = 0;
+                    var files = ["1.jpg", "2.jpg", "3.jpg", "4.jpg","5.jpg","6.jpg"]
+                    var stop = $('#stop');
+         $("#auto-btn").on("click",function(){
+            pp = setInterval(function(){
+            currentImg = $("#page2-imgs").append($("#page2-imgs > img").first());
+           
+            
+           },50);
+           $("#stop").on("click",function(event){
+           clearInterval(pp);
+
+         //선택이미지 랜덤
+           var idx = Math.floor(Math.random()* files.length);
+                $('<img>').attr({"src" : "img/western/" + files[idx]})
+                .css({"position": "relative", "width" : "200px", "height" : "200px"})
+                $('#selected-img').attr({"src" : "img/western/" + files[idx]})
+               
+         })
+     })
+            }); 
+            </script>
+
+            <div id="page2-imgs">   
+                    <img id="ck" src ="img/western/1.jpg" class="canvas">
+                    <img id="hm" src ="img/western/2.jpg" class="canvas">
+                    <img id="sg" src ="img/western/3.jpg" class="canvas">
+                    <img id="pz" src ="img/western/4.jpg" class="canvas">
+                    <img id="pk" src ="img/western/5.jpg" class="canvas">
+                    <img id="sk" src ="img/western/6.jpg" class="canvas">
+                   
+            </div>
+            <div ><img id = "selected-img"></div>
+            <div id="buttons"><button id="auto-btn">추천</button><button id="stop">멈춤</button></div>
+            <img class = "scroll" src = "img/western/scroll.png">
+                
+        </div>
+<!------------------------------------------page 2 random-img_slide-------------------------------------------------> 
+<!------------------------------------------page 3 menu-infor------------------------------------------------------->
+        <div class="box" style="background-color: orange;">
+            <h1 id = "img-click"> 이미지 클릭 -></h1> 
+                <h1><p>근처 맛집도</p>
+                    <p>추천 드리지요</p>
+                </h1>
+                <img class = "scroll" src = "img/western/scroll.png">
+                
+
+            <script type="text/javascript">
+                $(function(){
+                
+                //슬라이드 토글 효과  
+                    var prev = null;
+                    $("#div1").click(function(event){
+                    if(prev != null) {
+                        prev.slideToggle();
+
+                    }
+                       prev = $(`#${event.target.id}-infor`)
+                        .css({ "border" : "5px solid black", "top" : "10%", "left" : "10%"})
+                        .slideToggle();
+                    
+                    });
+                });
+                      
+            </script>
+            <br>
+            <table id="div1">   
+                    <tr>
+                        <td><img id="ck" src ="img/western/1.jpg" class="canvas"></td>
+                        <td><img id="hm" src ="img/western/2.jpg" class="canvas"></td>
+                    </tr>
+                    <tr>
+                        <td><img id="sg" src ="img/western/3.jpg" class="canvas"></td>
+                        <td><img id="pz" src ="img/western/4.jpg" class="canvas"></td>
+                    </tr>
+                    <tr>
+                        <td><img id="pk" src ="img/western/5.jpg" class="canvas"></td>
+                        <td><img id="sk" src ="img/western/6.jpg" class="canvas"></td>
+                    </tr>
+                   
+            </table>
+            <div id="infor-box">
+                <div id="ck-infor" class ="infor" style = "display : none">                 
+                        <img class="infor-img"src ="img/western/nurungi.jpg">
+                        <img class="infor-img"src ="img/western/cheesecornck.jpg"> 
+                        <img class="infor-img"src ="img/western/cheesecornck2.jpg">
+                        <img class="infor-img"src ="img/western/cksign.jpg">
+                        <img class="infor-img"src ="img/western/ckmenu.jpg">
+                        <img class="infor-img"src ="img/western/ckbeer.jpg">
+                    </p>
+                    <p>#구디치킨집#치즈콘통닭존맛탱!#혜자스러운치즈콘닭#누룽지통닭구이#몸보신#영양</p>
+                    <p><a href="https://store.naver.com/restaurants/detail?id=712271764">계림원 누룽지 통닭 찾아가기 </a></p>
+                </div>
+                <div id="hm-infor" class ="infor" style = "display : none">
+                    <p><img class="infor-img"src ="img/western/pitzpotato.jpg">
+                        <img class="infor-img"src ="img/western/pitzinterior.jpg">
+                        <img class="infor-img"src ="img/western/pitzburger1.jpg"> 
+                        <img class="infor-img"src ="img/western/pitzburger2.jpg">
+                        <img class="infor-img"src ="img/western/pitzck.jpg">
+                        <img class="infor-img"src ="img/western/pitzbeer.jpg">
+                    </p>
+                    <p>#구디버거#수제버거핵존맛#지벨리몰맛집#이태원피츠버거구디상륙#기똥찬수제버거</p>
+                    <p><a href="https://blog.naver.com/mignon365/220320187930">피츠 버거 찾아가기 </a></p>
+                </div>
+                <div id="sg-infor" class ="infor" style = "display : none">
+                    <p><img class="infor-img"src ="img/western/corosign.jpg">
+                        <img class="infor-img"src ="img/western/coroinside.jpg">
+                        <img class="infor-img"src ="img/western/coromenu.jpg"> 
+                        <img class="infor-img"src ="img/western/corosteak.jpg">
+                        <img class="infor-img"src ="img/western/coropasta.jpg">
+                        <img class="infor-img"src ="img/western/corosalad.jpg">
+                    </p>
+                    <p>#평일데이트코스#구디파스타맛집#구디까르보나라#라자냐흡입#리코타치즈샐러드</p>
+                    <p><a href="https://store.naver.com/restaurants/detail?id=1246268680">꼬로 파스타 찾아가기 </a></p>
+                </div>
+
+                <div id="pz-infor" class ="infor" style = "display : none">
+                    <p><img class="infor-img"src ="img/western/lamanosign.jpg">
+                        <img class="infor-img"src ="img/western/lamanointerior.jpg">
+                        <img class="infor-img"src ="img/western/lamanopizza1.jpg"> 
+                        <img class="infor-img"src ="img/western/lamanopizza2.jpg">
+                        <img class="infor-img"src ="img/western/lamanopizza3.jpg">
+                        <img class="infor-img"src ="img/western/lamanopizza4.jpg">
+                    </p>
+                    <p>#구디피자짱맛이야!#라마노피자#구디맛집#히비스커스에이드#직장인메뉴추천 </p>
+                    <p><a href="https://store.naver.com/restaurants/detail?id=37433126">라마노 피자 찾아가기 </a></p>   
+                </div>
+
+                <div id="pk-infor" class ="infor" style = "display : none">
+                    <p><img class="infor-img"src ="img/western/cazpksign.jpg">
+                        <img class="infor-img"src ="img/western/cazpk.jpg">
+                        <img class="infor-img"src ="img/western/cazpk2.jpg"> 
+                        <img class="infor-img"src ="img/western/cazpk3.jpg">
+                        <img class="infor-img"src ="img/western/cazpk4.jpg">
+                        <img class="infor-img"src ="img/western/cazinterior.jpg">
+                    </p>
+                    <p>#넘버원돈카츠!#구로동돈까스맛집#치즈듬뿍돈카츠#흑스테키카츠#직장인점심추천 </p>
+                    <p><a href="https://store.naver.com/restaurants/detail?entry=pll&id=31028721&query=1's%20%EC%B9%B4%EC%B8%A0%EA%B3%B3%EA%B0%84%20%EB%B3%B8%EC%A0%90&tab=photo">카츠곳간 찾아가기 </a></p>
+                
+                </div>
+                <div id="sk-infor" class ="infor" style = "display : none">
+                    <p><img class="infor-img"src ="img/western/bonappetitsign.jpg">
+                        <img class="infor-img"src ="img/western/bonappetitinterior.jpg">
+                        <img class="infor-img"src ="img/western/bonappetitsk.jpg"> 
+                        <img class="infor-img"src ="img/western/bonappetitlizzotto.jpg">
+                        <img class="infor-img"src ="img/western/bonappetitsk2.jpg">
+                        <img class="infor-img"src ="img/western/bonappetitsk3.jpg">
+                    </p>
+                    <p>#구디스테이크!#뚝배기해산물리조또#구디레스토랑#커플세트#구디데이트 </p>
+                    <p><a href="https://store.naver.com/restaurants/detail?entry=plt&id=35608587&query=%EB%B3%B4%EB%82%98%EB%B2%A0%EB%9D%A0%20%EA%B5%AC%EB%A1%9C%EC%A7%80%EB%B0%B8%EB%A6%AC%EC%A0%90">보나베띠 찾아가기 </a></p> 
+                
+                    
+                </div>
+            </div>
+            
+    
+        </div>
+<!------------------------------------------page 3 menu-infor-------------------------------------------------->
+
+<!------------------------------------------page 4 ------------------------------------------------------------>                
+                <div class="box" style="background-color:white;">
+                        <h1 id="ending"><p>eat well</p>
+                                        <P>live</P>
+                                        <p>better</p>
+                        </h1>
+                    <img id = "ending-img" src = "img/western/HA.jpg">
+                </div>
+                <a href="http://172.16.6.7:8081/index.html">
+                    <div class="fab">H</div>
+                  </a>
+                
+                
+        <script type="text/javascript"></script>
+
+</body>
+
+</html>

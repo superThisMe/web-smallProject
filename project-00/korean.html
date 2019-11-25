@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title></title>
+    <style type="text/css">
+/* +++++++++++++++++++++++++슬라이드 관련 */
+html,body{ margin:0; padding:0; width:100%; height:100%;}
+        .box{ width:100%; height:100%; position:relative; color:#ffffff; font-size:24pt;}
+
+#main {width: 100%; height: 100%; position: relative; display: inline-block;
+            }
+#main:after { position: absolute;display: block; content: ""; 
+                    top: 0; left: 0;width: 100%; height: 100%; 
+                    box-shadow: inset 0 0 50px rgba(0,0,0,0.5, green, blue, alpha),
+                                inset 0 0 100px rgba(0,0,0,0.2, green, blue, alpha);}
+
+/*  page 1 */
+
+*{margin:0; padding:0; list-style:none;}
+a{text-decoration:none;	color:#666;}
+a:hover{color:#1bc1a3;}
+
+#wrapper{
+	width:600px;
+	margin: 0 auto;
+    
+	height:400px;
+	position:relative;
+	color:#fff;
+	text-shadow:rgba(0,0,0,0.1) 2px 2px 0px;	
+}
+
+#slider-wrap{
+	width:600px;
+	height:400px;
+    
+	position:relative;
+    overflow:hidden;
+
+}
+
+#slider-wrap ul#slider{
+	width:100%;
+	height:100%;
+	border: white 2px;
+	position:absolute;
+	top:0;
+	left:0;		
+}
+
+#slider-wrap ul#slider li{
+	float:left;
+	position:relative;
+	width:600px;
+	height:400px;	
+}
+
+#slider-wrap ul#slider li > div{
+	position:absolute;
+	top:20px;
+	left:35px;	
+}
+
+#slider-wrap ul#slider li > div h3{
+	font-size:36px;
+	text-transform:uppercase;	
+}
+
+#slider-wrap ul#slider li > div span{
+	font-family: Neucha, Arial, sans serif;
+	font-size:21px;
+}
+
+#slider-wrap ul#slider li i{
+	text-align:center;
+	line-height:400px;
+	display:block;
+	width:100%;
+	font-size:90px;	
+}
+
+#slider-wrap ul#slider li i img{
+    position: absolute;
+	display:block;
+	width:100%;
+    height: 100%;
+
+}
+
+
+/*btns*/
+.btns{
+	position:absolute;
+	width:50px;
+	height:60px;
+	top:50%;
+	margin-top:-25px;
+	line-height:57px;
+	text-align:center;
+	cursor:pointer;	
+	background:rgba(0,0,0,0.1);
+	z-index:100;
+	
+	
+	-webkit-user-select: none;  
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-ms-user-select: none;
+	
+	-webkit-transition: all 0.1s ease;
+	-moz-transition: all 0.1s ease;
+	-o-transition: all 0.1s ease;
+	-ms-transition: all 0.1s ease;
+	transition: all 0.1s ease;
+}
+
+.btns:hover{
+	background:rgba(0,0,0,0.3);	
+}
+
+#next{right:-50px; border-radius:7px 0px 0px 7px;}
+#previous{left:-50px; border-radius:0px 7px 7px 7px;}
+#counter{
+	top: 30px; 
+	right:35px; 
+	width:auto;
+	position:absolute;
+}
+
+#slider-wrap.active #next{right:0px;}
+#slider-wrap.active #previous{left:0px;}
+
+
+/*bar*/
+#pagination-wrap{
+	min-width:20px;
+	margin-top:350px;
+	margin-left: auto; 
+	margin-right: auto;
+	height:15px;
+	position:relative;
+	text-align:center;
+}
+
+#pagination-wrap ul {
+	width:100%;
+}
+
+#pagination-wrap ul li{
+	margin: 0 4px;
+	display: inline-block;
+	width:5px;
+	height:5px;
+	border-radius:50%;
+	background:#fff;
+	opacity:0.5;
+	position:relative;
+  top:0;
+  
+  
+}
+
+#pagination-wrap ul li.active{
+  width:12px;
+  height:12px;
+  top:3px;
+	opacity:1;
+	box-shadow:rgba(0,0,0,0.1) 1px 1px 0px;	
+}
+
+
+
+
+/*Header*/
+h1, h2{text-shadow:none; text-align:center;}
+h1{	color: #666; text-transform:uppercase;	font-size:36px;}
+h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; margin-bottom:30px;} 
+
+
+
+
+/*ANIMATION*/
+#slider-wrap ul, #pagination-wrap ul li{
+	-webkit-transition: all 0.3s cubic-bezier(1,.01,.32,1);
+	-moz-transition: all 0.3s cubic-bezier(1,.01,.32,1);
+	-o-transition: all 0.3s cubic-bezier(1,.01,.32,1);
+	-ms-transition: all 0.3s cubic-bezier(1,.01,.32,1);
+	transition: all 0.3s cubic-bezier(1,.01,.32,1);	
+}
+
+/* page 2 */
+
+#left2  {
+    
+    float : left;
+    width: 40%;
+    height: 100%;
+    background-color: palegoldenrod;
+    color: black;
+}
+
+#right2{
+    
+    float : right;
+    width: 60%;
+    height: 100%;
+    background-color: paleturquoise;
+    text-align: center;
+    font-size: 15pt;
+    color: black;
+    
+}
+
+#left2 > img {
+                width: 150px;
+                height: 150px;
+                margin: 2px auto 2px auto;
+                border-radius : 7px 
+            }
+
+#left2 > li {   width :150px;
+                height: 50px;}
+
+
+
+/* page 3 */
+#food > img {
+                width: 150px;
+                height: 150px;
+                margin: 2px auto 2px auto;
+                border-radius : 7px
+            }
+
+#todayFood {
+            position: relative;
+            
+            top : 20px;
+            width : 400px;
+            height : 350px;
+            margin : 0 auto;
+            border: 3px solid;
+}
+
+#todayRecipe {
+    position: absolute;
+    left: 5%;
+            top : 60%;
+            width : 350px;
+            height : 200px;
+            margin : 0 auto;
+            border: 3px solid;
+}
+
+#todayRecipe > p { color: black;
+                    text-align: center;}
+
+#todayLink > p { color: black;
+                text-align: center;}
+
+#todayLink {
+    position: absolute;
+    right: 5%;
+            top : 60%;
+            width : 350px;
+            height : 200px;
+            margin : 0 auto;
+            border: 3px solid;
+}
+
+#todayFood img { 
+            width : 100%;
+            height :100%;
+            display : none
+}
+
+#food {position: relative;
+        right: 0;
+        border : 3px solid}
+
+#random {position : relative;
+        text-align: center;}
+
+#button { 
+        margin : 0 auto;
+        text-align : center}
+
+#box4 > p {color: black;}    
+
+/* 홈버튼 */
+
+        .fab {
+      width: 70px;
+      height: 70px;
+      background-color: mediumturquoise;
+      border-radius: 50%;
+      box-shadow: 0 6px 10px 0 #666;
+      transition: all 0.1s ease-in-out;
+
+      font-size: 50px;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+      line-height: 70px;
+
+      position: fixed;
+      right: 50px;
+      bottom: 50px;
+    }
+
+    .fab:hover {
+      box-shadow: 0 6px 14px 0 #666;
+      transform: scale(1.05);
+    }
+
+
+
+/* /////////////////////   CSS 끝부분 ////////////////////////////////  */
+</style>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+     $(function(){
+                var elm = ".box";
+            $(elm).each(function (index) {
+                // 개별적으로 Wheel 이벤트 적용
+                $(this).on("mousewheel DOMMouseScroll", function (e) {
+                    e.preventDefault();
+                    var delta = 0;
+                    if (!event) event = window.event;
+                    if (event.wheelDelta) {
+                        delta = event.wheelDelta / 120;
+                        if (window.opera) delta = -delta;
+                    } 
+                    else if (event.detail)
+                        delta = -event.detail / 3;
+                    var moveTop = $(window).scrollTop();
+                    var elmSelecter = $(elm).eq(index);
+                    // 마우스휠을 위에서 아래로
+                    if (delta < 0) {
+                        if ($(elmSelecter).next() != undefined) {
+                            try{
+                                moveTop = $(elmSelecter).next().offset().top;
+                            }catch(e){}
+                        }
+                    // 마우스휠을 아래에서 위로
+                    } else {
+                        if ($(elmSelecter).prev() != undefined) {
+                            try{
+                                moveTop = $(elmSelecter).prev().offset().top;
+                            }catch(e){}
+                        }
+                    }
+                    
+                    //키보드로 화면 이동
+
+
+                    // 화면 이동 0.8초(800)
+                    $("html,body").stop().animate({
+                        scrollTop: moveTop + 'px'
+                    }, {
+                        duration: 400, complete: function () {
+                        }
+                    });
+                });
+            });
+
+
+//////////////////////////////// page 1 img slide
+
+var pos = 0;
+var totalSlides = $('#slider-wrap ul li').length;
+var sliderWidth = $('#slider-wrap').width();
+
+$('#slider-wrap ul#slider').width(sliderWidth*totalSlides);
+
+$('#next').click(function(){
+		slideRight();
+	});
+
+$('#previous').click(function(){
+		slideLeft();
+	});
+
+    var autoSlider = setInterval(slideRight, 3000);
+    
+    $.each($('#slider-wrap ul li'), function() { 
+	   //set its color
+	var c = $(this).attr("data-color");
+	   $(this).css("background",c);
+	   
+    var li = document.createElement('li');
+	   $('#pagination-wrap ul').append(li);	   
+	});
+
+    $('#slider-wrap').hover(
+	  function(){ $(this).addClass('active'); clearInterval(autoSlider); }, 
+	  function(){ $(this).removeClass('active'); autoSlider = setInterval(slideRight, 3000); }
+	);
+
+    function slideLeft(){
+	pos--;
+	if(pos==-1){ pos = totalSlides-1; }
+	$('#slider-wrap ul#slider').css('left', -(sliderWidth*pos)); 	
+    }
+
+function slideRight(){
+	pos++;
+	if(pos==totalSlides){ pos = 0; }
+	$('#slider-wrap ul#slider').css('left', -(sliderWidth*pos)); 
+    // countSlides();
+	// pagination();
+    }
+
+    //////////////////////////////// page 2///////////////////////////
+
+    //이미지 선택과 취소
+        $("#left2 > img").attr('data-selected', 'off');
+        $("#left2 > img").on("click", function (event) {
+                var selected = $(this).attr("data-selected");
+                if (selected == "on") {
+                    $(this).css("border", "");
+                   
+                } else {
+                    $(this).css("border", "solid 3px");
+                    $(this).css("border", "solid 3px");
+                    // $("#left2 > img").
+                    // $(event.target).bind("click")
+                        }
+                $(this).attr("data-selected", selected == "on" ? "off" : "on");
+            });
+
+
+
+    //설명을 숨기고 보이는 함수
+  
+
+            var prev = null;
+                    $('#left2 > img').click(function(event){
+                        if (prev != null) {
+                            prev.slideToggle();
+                        }
+                        
+                        prev = $(`#story${event.target.id}`)
+                        .css({ "border" : "5px solid black", "top" : "10%", "left" : "10%"})
+                        .slideToggle();
+                        
+                    
+                    });
+                
+
+
+
+    //////////////////////////////// page 3/////////////////////////// -->
+
+      //이미지 선택과 취소
+    $("#food img").attr('data-selected', 'off');
+    $("#food img").on("click", function (event) {
+            var selected = $(this).attr("data-selected");
+            if (selected == "on") {
+                    
+            $(this).css("border", "").removeClass('move');
+            } else {
+            $(this).css("border", "solid black 3px").addClass('move');
+            }
+            $(this).attr("data-selected", selected == "on" ? "off" : "on");
+            });
+
+    // 버튼 클릭시 사진을 오늘의 음식으로 복사
+    $("#selectBtn").on("click", function (event) {
+                    $('.move').clone().appendTo("#todayFood")
+                })
+                
+
+    //랜덤
+    var cont = 0;
+            var timer = null;
+            var i = 0;
+
+            function ran() {
+                var ranImg = $('#todayFood .move');
+                $(ranImg).css({ "display": "none" });
+                i >= ranImg.length ? i = 0 : i;
+                $(ranImg).eq(i).css({ "display": "block" });
+                i++
+            }
+            
+            $('#randomBtn').on('click', function (event) {
+                var foodImg = $("#todayFood img")
+                if ($(foodImg).length > 1) {
+                    if (cont % 2 == 0) {
+                        $('#randomBtn').text('멈춰 주세요') 
+                        timer = setInterval(function () {
+                            ran();
+                        }, 50);
+                        
+                    } else {
+                        $('#randomBtn').text('2.눌러주세요.')
+                        clearInterval(timer);
+
+                    }
+                    cont++;
+                } else { alert(" 2개 이상의 음식을 선택후 눌러주세요.") }
+            })
+                
+                
+            //추천 장소 띄우기
+            
+            $("#todayFood").on("click", function(event){
+                $(`#${event.target.id}_recipe`).add(`#${event.target.id}_link`).slideToggle()
+            })
+
+
+            
+         
+                
+           
+           
+
+
+            
+  
+// %%%%%%%%%%%%%%%%% jquery 끝부분
+        });
+    </script>
+</head>
+<body>
+
+<!-- //////////////////////////////// page 1/////////////////////////// -->
+
+    <div class="box" style="background-color: palegoldenrod;">
+            <div id="wrapper">
+   
+                    <h1>오늘도 한식</h1>
+                 <h2> 근처에서 만나는 맛있는 한식 </h2>
+                   
+                    <div id="slider-wrap">
+                       <ul id="slider">
+                          <li data-color="#1abc9c">
+                           <div>
+                               <h3>Slide #1</h3>
+                               <span>Sub-title #1</span>
+                           </div>                
+                           <i><img src="img/korean/107840645_196089.jpg"/></i>
+                        </li>
+                        
+                        <li data-color="#3498db">
+                           <div>
+                               <h3>Slide #2</h3>
+                               <span>Sub-title #2</span>
+                           </div>
+                           <i><img src="img/korean/29cDMk4MGnRI4CRyaQvC83bpKg23.jpg"/></i>
+                        </li>
+                        
+                        <li data-color="#9b59b6">
+                           <div>
+                               <h3>Slide #3</h3>
+                               <span>Sub-title #3</span>
+                           </div>
+                           <i><img src="img/korean/aluminous-749358_1920.jpg"/></i>
+                        </li>
+                        
+                        <li data-color="#34495e">
+                           <div>
+                               <h3>Slide #4</h3>
+                               <span>Sub-title #4</span>
+                           </div>
+                           <i><img src="img/korean/tradition.jpg"/></i>
+                        </li>
+                        
+                        <li data-color="#e74c3c">
+                           <div>
+                               <h3>Slide #5</h3>
+                               <span>Sub-title #5</span>
+                           </div>
+                           <i><img src="img/korean/오라숲소리메인.jpg"/></i>
+                        </li>
+                        
+                        
+                     </ul>
+                     
+                      <!--controls-->
+                     <div class="btns" id="next"><i class="fa fa-arrow-right"></i></div>
+                     <div class="btns" id="previous"><i class="fa fa-arrow-left"></i></div>
+                     <div id="counter"></div>
+                     
+                     <div id="pagination-wrap">
+                       <ul>
+                       </ul>
+                     </div>
+                     <!--controls-->  
+                            
+                 </div>
+             
+              </div>      
+
+      
+        1</div>
+<!-- //////////////////////////////// page 2/////////////////////////// -->
+
+    <div class="box" style="background-color: palegreen;">
+        <div id="left2">
+            <p>우리가 먹고 있는 음식이야기</p><br>
+            <img id="1" src="img/korean/1.png">[ 국 ]
+            <img id="2" src="img/korean/2.png">[찌개]<br>
+            <img id="3" src="img/korean/3.png">[전골]
+            <img id="4" src="img/korean/3.5.jpg">[볶음]<br>
+            <img id="5" src="img/korean/4.png">[찜]<br>
+        </div>
+        <div id="right2">
+                <div style="display : none" id="story1">
+                        
+                        정의<br>
+                        채소·생선·고기 등을 넣고 물을 많이 부어 끓인 음식.<br>
+                        <br>
+                        내용<br>
+                        국은 끓이기 조리법의 대표적인 것으로 반상차림에서 밥과 더불어 기본이 되는 음식이다.
+                        
+                        끓이기 조리법은 인류가 그릇을 발명하면서부터 있었으므로 국의 역사도 오래되었을 것으로 추측된다. 『고려사』에 왕이 밥과 국을 하사하였다는 기록으로 미루어 우리 일상식의 기본이 된 것은 고려시대로 추정된다.
+                        
+                        국은 크게 맑은장국·곰국(곰탕)·토장국·냉국으로 나눌 수 있다. 고기나 생선을 고거나 채소·고기·어패류에 된장을 풀어 되직하게 끓인 갱(羹: 제사에 쓰이는 국)에서 분화, 발달된 것이다.
+                        
+                        맑은장국은 간장으로 간을 맞추어 국물을 맑게 끓인 국으로 격식을 갖춘 반상차림에 차려진다. 맑은장국의 주재료로는 쇠고기·생선류·채소류·해조류 등이 사용된다. 쇠고기로 맑은장국을 끓일 때는 고기를 푹 곤 국물을 거른 육수로 끓이는 경우와 고기를 채썰어서 양념을 하여 끓이는 경우가 있다. 생선맑은장국은 국물이 끓을 때 생선을 넣어 생선이 풀어지지 않도록 한다. 채소류는 오래 끓이면 질겨지고 풍미가 적어지므로 너무 오래 끓이지 않는다.
+                        
+                        토장국은 된장을 쌀뜨물에 넣고 끓인 국으로 구수하면서도 깊은 맛이 있다. 특히, 쌀뜨물에 들어 있는 효소는 채소의 조직을 부드럽게 해준다. 토장국에는 멸치국물이 잘 어울리나 겨울철에는 쇠뼈를 곤 국물을 이용하는 것이 맛과 영양면에서 더욱 좋다.
+                        
+                        곰국은 쇠머리·사골·도가니·양지머리·갈비·꼬리·양·곱창·곤자소니 같은 소의 여러 부위를 여러 시간 푹 고아 맛과 영양분이 국물에 충분히 우러나게 한 국이다. 닭을 사용할 수도 있다. 곰국은 오랫동안 끓이면 국물이 뽀얗게 되는데 이것은 내장이나 뼈에서 우러난 인지질이 유화되었기 때문이다.
+                        
+                        냉국은 차게 해서 먹는 국이다. 오이냉국·미역냉국 등 담백한 것이 주종을 이루나 닭을 곤 국물로 만든 깻국 같은 보양음식도 있다.
+                        
+                        다양한 종류의 국은 주재료나 조리법을 달리하며 계절이나 부식의 종류에 따라 적절하게 먹는다. 계절별로 보면 다음과 같다. 봄에는 애탕국·생선맑은장국·생고사리국 등의 맑은장국과 냉이토장국·소루쟁이토장국 등 봄나물로 끓인 국을 먹었다. 여름에는 미역냉국·오이냉국·깻국 등의 냉국류와 보양을 위한 육개장·영계백숙·계삼탕 등의 곰국류를 먹었다. 가을에는 무맑은장국·토란국·버섯맑은장국 등의 주로 맑은 장국류를 먹었다. 겨울에는 시금치토장국·우거짓국·선짓국·꼬리탕 등 곰국류나 토장국류를 먹었다.
+                        
+                        계절에 따라 국의 종류가 특별히 정해진 것은 아니다. 그렇지만 대체로 식품의 계절적 특미를 살리는 것이 영양과 경제성면에서 좋다. 또한, 재료와 국의 종류를 선정할 때에는 계절과 밥의 종류 및 반찬 내용에 따라서 맛과 색채감이 어울리게 하고 식품 배합상 균형이 잡힌 식사가 될 수 있도록 하여야 한다.
+                        
+                        국물의 양은 1인당 한 컵 정도가 적당하며 맛을 좋게 하기 위해서는 쇠고기·멸치·마른새우·조개 등을 넣는 것이 좋다. 국의 맛은 간을 맞추는 간장·된장·고추장의 맛에 크게 좌우된다고 할 수 있다. 건더기는 국물의 3분의 1 정도가 알맞다.
+                        
+                        끓이는 시간은 건더기의 종류와 크기에 따라 차이가 있다. 대략 감자 15∼20분, 콩나물 5∼8분, 당근 15∼20분, 무 15분, 미역 5분, 배추 5∼8분, 토란 10∼15분, 호박 7분, 두부 2분, 파 4∼6분 정도이다.
+                        
+                        국은 식품 속에 함유되어 있는 수용성 단백질·지방·무기질 등 수용성 성분이 우러나온 국물을 이용함으로써 영양손실이 적은 장점이 있다. 또한, 이러한 맛 성분이 어우러져 구수한 맛을 주므로 많은 사람이 즐겨 먹는다.
+                        <br>[네이버 지식백과] 국 (한국민족문화대백과, 한국학중앙연구원)
+                </div>
+                <div style="display : none" id="story2">
+                        
+                        정의<br>
+                        고기나 채소에 고추장·된장 따위를 넣고 바특하게 끓인 음식.<br>
+                        <br>
+                        내용<br>
+                        우리 음식의 조리법 중 끓이는 음식에 속하며, 곡물음식을 중심으로 구성하는 상차림에서 반드시 들어가는 음식이다. 끓이는 음식 중 국물이 많은 것은 탕 또는 국이라 하고 국물이 좀 적은 것은 찌개라 한다.
+                        
+                        찌개라는 말은 조선시대 조리서에는 나타나지 않다가 ≪시의전서 是議全書≫에서 조치라는 이름으로 비로소 등장한다. 그러나 윤서석(尹瑞石)은 “≪증보산림경제≫에 탕(湯)과 갱(羹)이 아울러 나타난다. 탕은 국물 위주의 국이고, 갱은 국물이 적은 국이라 하였으니 탕은 국이고 갱은 찌개에 해당되는 것 같다.”라고 하며, 국과 찌개의 구분이 좀더 일찍부터 있었을 것으로 보고 있다.
+                        
+                        찌개는 생선찌개·두부찌개·명란젓찌개 등과 같이 재료에 따라 분류하거나, 새우젓찌개·고추장찌개·된장찌개 등 조미료에 따라 분류할 수 있다.
+                        
+                        새우젓찌개는 새우젓으로 간을 하여 끓인 찌개이며, 재료로는 두부·무·명란젓 등이 잘 어울린다. 알맞은 냄비나 뚝배기에 쇠고기 다진 것, 새우젓국, 참기름, 다진 마늘을 넣고 한 사람당 반 컵 정도의 비율로 물을 부어 끓이다가 바글바글 끓어오르면 두부와 파를 넣고 다시 한소끔 끓여 간을 맞추면 된다. 무나 명란젓을 넣어도 맛이 좋다. 새우젓은 칼슘을 많이 함유한 젓갈의 하나로 칼슘 공급원으로 매우 좋은 조미료이다.
+                        
+                        고추장찌개는 얼큰하게 끓이므로 식욕을 돋운다. 고추장은 찹쌀·멥쌀·보리 등을 주재료로 하고 메줏가루·고춧가루·소금을 넣어 만든 것이다. 재료는 생선이 좋고 그밖에 두부·호박·파 등을 합하여 쓸 수 있다. 특히, 민물고기나 게 등으로 찌개를 끓일 때에는 고추장을 쓰는 것이 가장 맛이 좋다고 한다.
+                        
+                        된장찌개는 된장으로만 끓이는 방법과 막고춧 가루를 넣고 끓이는 방법이 있고, 된장과 막고추장(찌개용으로 담근 보리고추장·밀고추장)을 섞어서 끓이는 방법이 있다. 여름철에는 뚝배기에다 풋고추만을 넣고 끓인 강된장찌개가 좋다. 강된장이라 함은 된장을 주재료로 쓴다는 뜻이 강하다. 된장에는 막장과 집메주로 담근 된장의 두 가지가 있다. 경상도에서 된장 위주로 담근 장이 막장이고, 보통 메주로 담가서 간장과 된장으로 분리하는 장법은 집메주된장이다.
+                        
+                        우리 나라 사람은 찌개를 매우 좋아하는 식성을 가지고 있다. 그 이유의 하나로 간이 없는 밥에 찌개를 곁들여 먹으면 밥을 먹기가 좋다는 점을 들 수 있다. 조선시대의 궁중에서도 찌개를 조치라 하여 맑은조치와 토장조치의 두 가지로 크게 나누고, 수라상에는 반드시 두 가지를 올렸다.
+                        <br>[네이버 지식백과] 찌개 (한국민족문화대백과, 한국학중앙연구원)
+                    </div>
+                <div style="display : none" id="story3">
+                        
+
+                        정의<br>
+                        여러 가지 재료를 전골냄비에 색을 맞추어 담고 간을 한 육수를 부어서 끓여 만든 음식.<br>
+                        <br>
+                        내용<br>
+                        전골이란 자법(煮法 : 삶아 익히는 것 냄비요리이다. 찌개와 비슷하다. 찌개는 각각 주된 주재료 한 가지를 가지고 만들고, 전골은 들어가는 주재료에 따라 이름이 달라지나, 여러 가지 재료를 함께 끓이는 점이 다르다.
+                        
+                        전골은 즉석요리의 하나로서 불에 냄비를 얹어놓고 조리하면서 먹는 것이 특징이다. 냄비 하나를 둘러싸고 여럿이 함께 먹으니 친밀감을 주고 또 난로가 있어서 난방의 구실도 한다.
+                        
+                        장지연(張志淵)은 ≪만국사물기원역사 萬國事物紀原歷史≫에서 “전골(氈骨)은 상고시대에 진중에서는 기구가 없었으므로 진중 군사들이 머리에 쓰는 전립을 철로 만들어 썼기 때문에 자기가 쓴 철관을 벗어 음식을 끓여 먹었다. 이것이 습관이 되어 여염집에서도 냄비를 전립 모양으로 만들어 고기와 채소를 넣어 끓여 먹는 것을 전골이라 하여왔다.”고 그 유래를 설명하였다.
+                        
+                        ≪경도잡지 京都雜志≫에서는 “냄비이름에 전립투(氈笠套)라는 것이 있다. 그 모양이 벙거지 같다고 하여 이러한 이름이 생겼다고 한다. 채소는 그 가운데 움푹하게 들어간 부분에다 넣어서 데치고 변두리의 편편한 곳에서 고기를 굽는다. 술안주나 반찬에 모두 좋다.”고 하였다.
+                        
+                        ≪옹희잡지 饔0x9849雜志≫에서는 “적육기(炙肉器)에 전립을 거꾸로 누인 것과 같은 모양의 그릇이 있다. 여기에 무·미나리·파의 무리를 세절(잘게 자르는 것)하여 복판의 우묵한 곳에 넣고 장수(醬水 : 간장)에 엄저(淹貯 : 담가 놓는 것)한다. 이것을 숯불 위에 두고 철을 달군다. 고기는 종이처럼 얇게 썰고 유장(油醬 : 기름장)에 지(漬; 담그다.)하고 젓가락으로 집어서 사연평면(四沿平面 : 사면, 사방)에서 협적(熁炙 : 불로 지저 굽는 것)하여 한 그릇으로 3, 4인이 먹는다. 이것을 전철(煎鐵) 또는 전립투라고 한다.”고 하였다. 이와 같이 ≪경도잡지≫와 ≪옹희잡지≫의 전골은 지금의 냄비전골과 전골틀부터 다르다.
+                        
+                        ≪시의전서 是議全書≫에는 연한 안심을 얇게 골패 쪽처럼 저미거나 채를 쳐서 갖은 양념을 하여 알합이나 화기(火器)에 담고 그 위에 잣가루를 뿌려 먹는다. 죽순·낙지·굴을 쓰기도 한다고 되어 있다.
+                        
+                        전골나물은 무·콩나물·숙주·미나리·파·고비·표고·느타리·석이·도라지를 쓴다. 소반에 전골틀과 나물접시를 놓고 탕기에 맑은 장국을 타서 담고, 접시에 달걀 2, 3개를 담고 기름은 종지에 놓고 풍로에 숯을 피워 전골틀이나 냄비에 지진다고 하였다. 오늘날의 냄비전골과 ≪경도잡지≫나 ≪옹희잡지≫의 구이전골과 혼합된 형이다.
+                        
+                        이것으로 미루어 전골은 구이전골에서 냄비전골 또는 혼합형으로 바뀌게 된 것으로 추측된다. 전골의 종류는 각색전골·굴전골·낙지전골·노루전골·대합전골·두부전골·버섯전골·채소전골 등의 들어가는 주재료에 따라 다양하게 있다.
+                        <br> [네이버 지식백과] 전골 (한국민족문화대백과, 한국학중앙연구원)
+                </div>
+                <div style="display : none" id="story4">
+                        
+
+                        정의<br>
+                        어떤 재료에 양념을 하여 볶은 음식.<br>
+                        <br>
+                        내용<br>
+                        한자어로는 초(炒)라 한다. ‘볶다’의 뜻은 국어사전에 ‘마른 물건을 그릇에 담아 불에 익히는 것’으로 나와 있다. 그러나 볶음에는 콩을 볶는 것과 같은 건열볶음 이외에 습열볶음 방법이 있다.
+                        
+                        조자호(趙慈鎬)는 초란 “조림과 같은 방법으로 요리하되 조림의 국물에 녹말가루를 풀어 넣어 익혀서 그것이 재료에 엉기도록 한 것이다. 전복초·홍합초 등이 있다.”고 하였고, ≪조선무쌍신식요리제법 朝鮮無雙新式料理製法≫에서는 “국은 국물이 가장 많고, 지짐이는 국물이 바특하고, 초는 국물이 더 바특하여 찜보다 조금 국물이 있는 것이다.”고 설명하였다. 또, 황혜성(黃慧性)은 “초란 생복초(生鰒炒)·홍합초와 같이 싱겁고 달콤하게 졸여 국물이 거의 없어지게 하는 요리법이다.”라고 하였다.
+                        
+                        ≪옹희잡지 甕희雜誌≫에 설명된 어린 고추의 경엽(莖葉)에 장과 참기름을 넣고 볶아서 반숙되면 참깨·표고·석이 등 각종 향신료를 넣고 다시 볶아 익힌 다음 식혀서 수장(收藏)하는 남초초방(南椒炒方)과 검은 콩에 다시마, 각종 향신료, 청장, 참기름, 벌꿀 등을 섞어 잘 저어가면서 볶아 참깨·잣·후춧가루를 뿌려 사기항아리에 수장하는 흑두초방(黑豆炒方) 등은 습열볶음법에 가깝다고 할 수 있다.
+                        
+                        ≪음식지미방 飮食知味方≫의 양 볶는 법, ≪규합총서 閨閤叢書≫의 장볶이, ≪시의전서 是議全書≫의 고추장볶이 등과 같이 번철에 기름을 두르고 강한 불로 단시간에 조리하는 방법도 있다. ≪음식지미방≫의 양 볶는 법은 “솥뚜껑을 불 위에 놓고 오래 달궈서 기름을 둘러 양을 넣고 급히 볶아 그릇에 퍼내면 맛있다.”고 하였다.
+                        
+                        ≪시의전서≫의 고추장볶이는 “고추장을 새옹이나 냄비에 담아 물을 조금 붓고 뭉근한 불로 볶는데 파·생강·고기를 다져 넣은 다음 꿀·기름을 많이 넣고 볶아야 맛이 좋다.”고 하였다. 이 방법은 휘저어가면서 굽는 조리법으로 잘 휘저을 수 있도록 부피가 큰 재료는 알맞게 썰어 넣어야 한다.
+                        
+                        습열볶음에는 가리볶음·간볶음·낙지볶음·송이볶음·우엉볶음·제육볶음 등이 있고, 건열볶음에는 명태볶음·자반볶음·고추장볶음·멸치볶음·새우볶음·조갯살볶음·오징어채볶음·쥐치채볶음 등이 있다.<br>
+                        [네이버 지식백과] 볶음 (한국민족문화대백과, 한국학중앙연구원)
+                </div>
+                <div style="display : none" id="story5">
+                        
+
+                        정의<br>
+                        어패류·육류·채소 등에 향미성 조미식품을 가미하여 쪄서 익힌 음식.<br>
+                        <br>
+                        내용<br>
+                        원래는 시루에 쪄서 만들었으나, 조리용구의 다양화·간편화에 따라 음식명은 그대로 남고, 조리법은 대부분 끓여 익혀 국물 없이 만드는 것으로 변하였다.
+                        
+                        찜요리를 할 때에는 주재료에 갖은 양념을 하여 물을 약간 넣고 푹 익혀 재료의 맛이 충분히 우러나도록 만든다. 주로 어패류나 닭·갈비·사태육·우둔육 등 동물성 식품을 주재료로 하고, 채소·버섯·달걀 등을 부재료로 한다. 우리 음식에서 찜이라 불리는 음식은 매우 많고 그 기법도 다양하다.
+                        
+                        ≪증보산림경제≫ 우육증방(牛肉蒸方)에서는 “자기(磁器)내에다 고기와 술·초·장 등 조미액을 알맞게 넣고 주둥이를 봉하여 약한 불로 중탕하여 자(煮)함으로써 연란(軟爛)하기를 기다려 먹는다.”고 하였으니 자한다는 것은 증(蒸)으로, 중탕식자숙(重湯式煮熟)찜을 말한다.
+                        
+                        ≪임원경제지≫에서는 “증이란 갱(羹)의 소즙자(小汁者)이다.”라고 하여 조미액이 고기에 배어들어가서 조금만 남은 상태라고 설명하고 있다. ≪규합총서 閨閤叢書≫의 메추라기찜은 “국물이 바특하여 제 몸이 다 익은 뒤에는 젖을만하여야 좋다.”라고 되어 있다.
+                        
+                        이와 같이, 찜은 조리기법에서 온 명칭이라기보다, 마무리가 된 상태가 수증기로 쪄냈을 정도의 즙기를 가진 상태가 됨을 칭하는 것이라 하겠다. 즉, 솥에 넣은 물이나 재료 자체의 수분이 증기가 되고 이것이 증발하지 못하니 결국 수증기에 의한 가열방법이라 볼 수 있어서 찜이라는 이름이 붙었다고 할 수 있다. 찜은 반상·교자상·주안상 등 여러 상차림에 놓인다.<br>
+                        [네이버 지식백과] 찜 (한국민족문화대백과, 한국학중앙연구원)
+                </div>
+        </div>
+
+
+
+    </div>
+
+<!-- //////////////////////////////// page 3/////////////////////////// -->
+
+    <div id="box4" class="box" style="background-color: paleturquoise;" >
+        <p>메뉴를 못 고르겠다면!! 랜덤 추천맛집!!</p>
+        <div id="food">
+            <img id="ssambab" src="img/korean/sam.jpg" title="쌈밥">
+            <img id="go" src="img/korean/go.jpg" title="고등어구이">
+    
+            <img id="boo" src="img/korean/boo.jpg" title="부대찌개">
+            <img id="nag" src="img/korean/nag.JPG" title="낙곱새전골">
+            
+            <img id="jjoo" src="img/korean/jjoo.jpg" title="쭈꾸미볶음">
+            <img id="dak" src="img/korean/dak.JPG" title="닭볶음탕">
+    
+            <img id="sam" src="img/korean/sam.jpg" title="삼계탕">
+            <img id="soon" src="img/korean/soon.jpg" title="순대국밥">
+            
+            <img id="cho" src="img/korean/cho.jpg" title="초계국수">
+            <img id="soo" src="img/korean/soo.JPG" title="들깨 수재비">
+        </div>
+        
+        <div id="button">
+        <button id="selectBtn">1. 원하는 음식 선택</button><br>
+        <button id="randomBtn">2. 눌러주세요</button>
+        </div>
+    <div>   
+        <div id="todayFood"></div>
+        <div id="todayRecipe">
+            <p>레시피</p>
+            <a style="display : none" id="ssambab_recipe"
+                href="https://terms.naver.com/entry.nhn?docId=5682467&cid=48161&categoryId=48196" target="_blank">쌈밥 레시피</a>
+            <a style="display : none" id="go_recipe"
+                href="https://terms.naver.com/entry.nhn?docId=1988385&cid=48164&categoryId=48202" target="_blank">고등어구이 레시피</a>
+            <a style="display : none" id="boo_recipe"
+                href="https://terms.naver.com/entry.nhn?docId=5670038&cid=42785&categoryId=62795" target="_blank">부대찌개 레시피</a>
+            <a style="display : none" id="nag_recipe"
+                href="https://terms.naver.com/entry.nhn?docId=5668471&cid=42785&categoryId=60402" target="_blank">낙곱새 레시피</a>
+            <a style="display : none" id="jjoo_recipe"
+                href="https://terms.naver.com/entry.nhn?docId=5743198&cid=42785&categoryId=60402" target="_blank">쭈꾸미볶음 레시피</a>
+            <a style="display : none" id="dak_recipe"
+                href="https://terms.naver.com/entry.nhn?docId=5682937&cid=48163&categoryId=48200" target="_blank">닭볶음탕 레시피</a>
+            <a style="display : none" id="sam_recipe"
+                href="https://terms.naver.com/entry.nhn?docId=1820005&cid=48163&categoryId=48200" target="_blank">삼계탕 레시피</a>
+            <a style="display : none" id="soon_recipe"
+                href="https://terms.naver.com/entry.nhn?docId=5678453&cid=48161&categoryId=48196" target="_blank">순대국밥 레시피</a>
+            <a style="display : none" id="cho_recipe"
+                href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=4809254&memberNo=19357942&vType=VERTICAL" target="_blank">초계국수
+                레시피</a>
+            <a style="display : none" id="soo_recipe"
+                href="https://terms.naver.com/entry.nhn?docId=5645833&cid=42785&categoryId=60402" target="_blank">들깨칼국수 레시피</a>
+        
+
+
+        </div>
+        <div id="todayLink">
+            <p>인근 맛집</p>
+            <a style="display : none" id="ssambab_link"
+                href="https://store.naver.com/restaurants/detail?entry=plt&id=20709904&query=%ED%86%A0%EB%8B%B4%EC%A7%91" target="_blank">토담집<br>
+                (코오롱 사이언스 2차)</a>
+            <a style="display : none" id="go_link"
+                href="https://store.naver.com/restaurants/detail?entry=plt&id=35750856&query=%ED%95%B4%EC%B4%88%EB%9E%91" target="_blank">해초랑<br>(대륭1차)</a>
+            <a style="display : none" id="boo_link"
+                href="https://store.naver.com/restaurants/detail?entry=plt&id=33101938&query=%EB%82%AD%EB%A7%8C%EB%B6%80%EB%8C%80%EC%B0%8C%EA%B0%9C" target="_blank">낭만부대찌개<br>
+                (대륭1차)</a>
+            <a style="display : none" id="nag_link"
+                href="https://store.naver.com/restaurants/detail?id=214024458" target="_blank">용호낚지<br>(지밸리몰)</a>
+            <a style="display : none" id="jjoo_link"
+                href="https://store.naver.com/restaurants/detail?id=1973450065" target="_blank">흑백집<br>(대륭1차)</a>
+            <a style="display : none" id="dak_link"
+                href="https://store.naver.com/restaurants/detail?id=18430814" target="_blank">누리한방삼계탕<br>(대륭1차)</a>
+            <a style="display : none" id="sam_link"
+                href="https://store.naver.com/restaurants/detail?id=18430814" target="_blank">누리한방삼계탕<br>(대륭1차)</a>
+            <a style="display : none" id="soon_link" href="https://store.naver.com/restaurants/detail?id=33431489" target="_blank">신의주순대<br>(
+                벽산디지털 3차)</a>
+            <a style="display : none" id="cho_link"
+                href="https://store.naver.com/restaurants/detail?entry=pll&id=38328758&query=05%EC%8B%9D%EB%8B%B9" target="_blank">05식당<br>(대륭1차)</a>
+            <a style="display : none" id="soo_link"
+                href="https://store.naver.com/restaurants/detail?id=18430926" target="_blank">명품들깨칼국수<br>(대륭1차)</a>
+        
+        </div>
+    </div>
+    </div>
+    
+
+<!-- //////////////////////////////// page 4/////////////////////////// -->
+
+<!-- home button  -->
+    <a href="http://172.16.6.7:8081/index.html">
+        <div class="fab">H</div>
+      </a>
+<!--  -->
+    
+    <script type="text/javascript">
+    
+    </script>
+
+</body>
+</html>
